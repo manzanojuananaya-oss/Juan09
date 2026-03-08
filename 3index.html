@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Corazón para Yexalen</title>
+  <style>
+    :root{
+      --bg1:#ffe8f4;
+      --bg2:#f2e3ff;
+      --heart1:#ff4f9a;
+      --heart2:#a64dff;
+      --text:#ffffff;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,var(--bg1),var(--bg2));
+      font-family:"Segoe UI",sans-serif;
+      overflow:hidden;
+    }
+
+    .container{
+      position:relative;
+      width:min(90vw,700px);
+      aspect-ratio:1/1;
+      display:grid;
+      place-items:center;
+      animation:float 3s ease-in-out infinite;
+    }
+
+    .heart{
+      position:relative;
+      width:380px;
+      height:340px;
+      transform:rotate(-45deg);
+      background:linear-gradient(135deg,var(--heart1),var(--heart2));
+      border-radius:28px;
+      box-shadow:0 18px 40px rgba(160,40,110,.35);
+      animation:beat 1.2s ease-in-out infinite;
+    }
+
+    .heart::before,
+    .heart::after{
+      content:"";
+      position:absolute;
+      width:380px;
+      height:340px;
+      background:linear-gradient(135deg,var(--heart1),var(--heart2));
+      border-radius:50%;
+    }
+
+    .heart::before{
+      top:-190px;
+      left:0;
+    }
+
+    .heart::after{
+      left:190px;
+      top:0;
+    }
+
+    .text{
+      position:absolute;
+      z-index:2;
+      text-align:center;
+      color:var(--text);
+      text-shadow:0 4px 10px rgba(0,0,0,.25);
+      transform:translateY(-10px);
+    }
+
+    .text h1{
+      margin:0;
+      font-size:clamp(2rem,8vw,4rem);
+      letter-spacing:1px;
+    }
+
+    .text p{
+      margin:6px 0 0;
+      font-size:clamp(1rem,3vw,1.4rem);
+      font-weight:600;
+    }
+
+    @keyframes beat{
+      0%,100%{transform:rotate(-45deg) scale(1)}
+      25%{transform:rotate(-45deg) scale(1.04)}
+      50%{transform:rotate(-45deg) scale(1)}
+      75%{transform:rotate(-45deg) scale(1.06)}
+    }
+
+    @keyframes float{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-8px)}
+    }
+
+    @media (max-width:600px){
+      .heart,.heart::before,.heart::after{
+        width:260px;
+        height:230px;
+      }
+      .heart::before{top:-130px}
+      .heart::after{left:130px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="heart"></div>
+    <div class="text">
+      <h1>TE AMO</h1>
+      <p>Yexalen 💖</p>
+    </div>
+  </div>
+</body>
+</html>
