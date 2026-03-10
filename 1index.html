@@ -3,293 +3,225 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Para Yexa </title>
+  <title>Para Yexalen 💖</title>
   <style>
     :root{
-      --bg1:#fff5fb;
-      --bg2:#f4e8ff;
-      --bg3:#ffe1f1;
-      --card:#ffffffcc;
-      --text:#3f2f46;
-
+      --bg1:#fff0f7;
+      --bg2:#efe3ff;
+      --card:#ffffffd9;
+      --line:#f1c7e4;
+      --text:#473055;
       --pink:#ff5ca8;
-      --lila:#b57cff;
-      --morado:#8b4dff;
-      --hoja:#57b56f;
-      --tallo:#3f9e59;
+      --purple:#9252ff;
     }
 
     *{box-sizing:border-box}
     body{
       margin:0;
-      min-height:100vh;
-      font-family: "Segoe UI", Tahoma, sans-serif;
+      font-family:"Segoe UI",sans-serif;
       color:var(--text);
-      background:
-        radial-gradient(circle at 10% 10%, #ffffffaa 0%, transparent 35%),
-        radial-gradient(circle at 90% 20%, #ffffff99 0%, transparent 30%),
-        linear-gradient(130deg,var(--bg1),var(--bg2),var(--bg3));
-      overflow-x:hidden;
+      background:linear-gradient(140deg,var(--bg1),var(--bg2));
+      min-height:100vh;
+      padding:24px;
     }
 
     .wrap{
-      width:min(1200px,94vw);
-      margin:34px auto;
+      width:min(1100px,95vw);
+      margin:auto;
       display:grid;
-      gap:22px;
+      gap:18px;
     }
 
-    .hero, .panel{
+    .card{
       background:var(--card);
-      border:1px solid #f3c8ff;
-      border-radius:24px;
-      box-shadow:0 16px 40px rgba(95,52,121,.15);
-      backdrop-filter: blur(6px);
+      border:1px solid var(--line);
+      border-radius:22px;
+      box-shadow:0 14px 30px rgba(0,0,0,.12);
+      padding:22px;
     }
 
-    .hero{
+    h1{
+      margin:0 0 8px;
       text-align:center;
-      padding:30px 24px;
-    }
-    .hero h1{
-      margin:0;
-      font-size:clamp(2rem,5vw,3.4rem);
-      color:#b23cff;
-      letter-spacing:.4px;
-    }
-    .hero p{
-      max-width:760px;
-      margin:10px auto 0;
-      line-height:1.8;
-      font-size:1.08rem;
+      color:#a338dc;
+      font-size:clamp(2rem,4.5vw,3.2rem);
     }
 
-    .grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:22px;
-    }
-
-    .panel{
-      padding:20px;
-    }
-
-    .panel h2{
-      margin:0 0 14px;
-      color:#a32ddf;
-      font-size:1.4rem;
-    }
-
-    .dedica p{
-      margin:.35rem 0;
+    .sub{
+      text-align:center;
+      max-width:820px;
+      margin:0 auto;
       line-height:1.85;
+      color:#6e4d84;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(180px,1fr));
+      gap:12px;
+      margin-top:14px;
+    }
+
+    .photo{
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid #eccae3;
+      background:#fff;
+      transition:.2s;
+    }
+
+    .photo:hover{
+      transform:translateY(-3px);
+      box-shadow:0 10px 18px rgba(0,0,0,.12);
+    }
+
+    .photo img{
+      width:100%;
+      height:230px;
+      object-fit:cover;
+      display:block;
+      cursor:pointer;
+    }
+
+    .caption{
+      padding:8px 10px;
+      font-size:.92rem;
+      color:#6b4a81;
+      font-weight:600;
+      text-align:center;
+    }
+
+    .letter{
+      line-height:1.95;
       font-size:1.05rem;
+      color:#4f3960;
     }
 
     .firma{
       margin-top:12px;
       font-weight:700;
-      color:#c22484;
+      color:#b12f85;
     }
 
-    .garden{
-      position:relative;
-      min-height:560px;
-      border-radius:20px;
-      padding:14px 8px 20px;
-      background:
-        linear-gradient(to top, #e2ffe9 0 18%, transparent 18%),
-        radial-gradient(circle at 50% 110%, #a6f0b8 0 20%, transparent 21%);
-      display:grid;
-      grid-template-columns:repeat(4,minmax(120px,1fr));
-      align-items:end;
-      justify-items:center;
-      gap:10px;
-    }
-
-    .tulip{
-      position:relative;
-      width:120px;
-      height:280px;
-      transform-origin:bottom center;
-      animation:sway 3.2s ease-in-out infinite;
-      filter:drop-shadow(0 8px 6px rgba(0,0,0,.09));
-    }
-    .tulip:nth-child(2n){animation-delay:.3s}
-    .tulip:nth-child(3n){animation-delay:.6s}
-    .tulip:nth-child(4n){animation-delay:.9s}
-
-    .stem{
-      position:absolute;
-      left:50%;
-      bottom:0;
-      transform:translateX(-50%);
-      width:10px;
-      height:180px;
-      background:linear-gradient(var(--hoja),var(--tallo));
-      border-radius:10px;
-    }
-
-    .leaf{
-      position:absolute;
-      bottom:78px;
-      width:40px;
-      height:18px;
-      background:linear-gradient(90deg,#79d68f,#4ea964);
-    }
-    .leaf.left{
-      left:20px;
-      border-radius:20px 20px 20px 2px;
-      transform:rotate(-28deg);
-    }
-    .leaf.right{
-      right:20px;
-      border-radius:20px 20px 2px 20px;
-      transform:rotate(28deg);
-    }
-
-    .flower{
-      position:absolute;
-      left:50%;
-      top:20px;
-      transform:translateX(-50%);
-      width:90px;
-      height:95px;
-    }
-
-    .petal{
-      position:absolute;
-      width:42px;
-      height:64px;
-      border-radius:26px 26px 14px 14px;
-      box-shadow: inset 0 10px 12px #ffffff55;
-    }
-
-    .petal.c{ left:24px; top:8px; z-index:3; }
-    .petal.l{ left:6px; top:14px; transform:rotate(-16deg); z-index:2;}
-    .petal.r{ left:42px; top:14px; transform:rotate(16deg); z-index:2;}
-
-    .pink .petal.c{background:#ff4fa1}
-    .pink .petal.l,.pink .petal.r{background:#ff85bf}
-
-    .lila .petal.c{background:#b87dff}
-    .lila .petal.l,.lila .petal.r{background:#ceabff}
-
-    .morado .petal.c{background:#8d4eff}
-    .morado .petal.l,.morado .petal.r{background:#a976ff}
-
-    .controls{
-      margin-top:16px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-
-    button{
+    .btn{
       border:none;
       border-radius:999px;
       padding:10px 16px;
       font-weight:700;
-      cursor:pointer;
-      background:#c046ff;
       color:#fff;
+      cursor:pointer;
+      background:linear-gradient(120deg,var(--pink),var(--purple));
     }
-    button:hover{filter:brightness(.95)}
 
-    .msg{
-      min-height:30px;
+    .extra{
       margin-top:10px;
-      color:#9b1cc8;
+      min-height:62px;
+      border:1px solid #ecccc7;
+      border-radius:12px;
+      background:#fff;
+      padding:10px;
+      color:#6a4580;
       font-weight:700;
+      line-height:1.7;
     }
 
-    @keyframes sway{
-      0%,100%{transform:rotate(-1.5deg)}
-      50%{transform:rotate(1.5deg)}
+    .modal{
+      position:fixed;
+      inset:0;
+      background:#000000bb;
+      display:none;
+      place-items:center;
+      padding:20px;
+      z-index:999;
     }
 
-    @media (max-width:900px){
-      .grid{grid-template-columns:1fr}
-      .garden{grid-template-columns:repeat(3,minmax(100px,1fr)); min-height:500px}
-      .tulip{width:105px;height:250px}
-      .stem{height:165px}
+    .modal.show{display:grid}
+
+    .modal img{
+      max-width:min(900px,95vw);
+      max-height:85vh;
+      border-radius:12px;
+      border:2px solid #fff;
+      box-shadow:0 12px 28px rgba(0,0,0,.45);
+    }
+
+    @media (max-width:860px){
+      .gallery{grid-template-columns:repeat(2,minmax(160px,1fr))}
+      .photo img{height:210px}
     }
 
     @media (max-width:560px){
-      .garden{grid-template-columns:repeat(2,minmax(100px,1fr))}
+      .gallery{grid-template-columns:1fr}
+      .photo img{height:240px}
     }
   </style>
 </head>
 <body>
   <main class="wrap">
-    <section class="hero">
-      <h1>Para Yexal </h1>
-      <p>
-        Hice este jardín 
-        Cada flor guarda una palabra bonita que quiero dedicarte.
+    <section class="card">
+      <h1>Para Yexalen 💖</h1>
+      <p class="sub">
+        Hice esta página para guardar lo bonita que eres en fotos y palabras.
+        Cada imagen es un recuerdo que me confirma lo mucho que te amo.
       </p>
     </section>
 
-    <section class="grid">
-      <article class="panel">
-        <h2>Dedicatoria</h2>
-        <div class="dedica">
-          <p>Eres ternura, fuerza y luz en una sola persona.</p>
-          <p>Tu sonrisa me calma, tu presencia me inspira.</p>
-          <p>Si te pudiera regalar un jardín, sería así: lila, morado y rosa.</p>
-          <p>Porque esos colores se quedan cortos para lo especial que eres.</p>
-        </div>
-        <p class="firma">Con cariño, alguien que te quiere mucho.</p>
+    <section class="card">
+      <div class="gallery">
+        <!-- FOTOS EN LA MISMA CARPETA QUE index.html -->
+        <figure class="photo"><img src="foto1.jpg" alt="Foto 1"><figcaption class="caption">Tu sonrisa favorita</figcaption></figure>
+        <figure class="photo"><img src="foto2.jpg" alt="Foto 2"><figcaption class="caption">Mi momento favorito</figcaption></figure>
+        <figure class="photo"><img src="foto3.jpg" alt="Foto 3"><figcaption class="caption">Siempre hermosa</figcaption></figure>
+        <figure class="photo"><img src="foto4.jpg" alt="Foto 4"><figcaption class="caption">Mi paz</figcaption></figure>
+        <figure class="photo"><img src="foto5.jpg" alt="Foto 5"><figcaption class="caption">Mi alegría</figcaption></figure>
+        <figure class="photo"><img src="foto6.jpg" alt="Foto 6"><figcaption class="caption">El amor de mi vida</figcaption></figure>
+      </div>
+    </section>
 
-        <div class="controls">
-          <button id="btnFrase">Mostrar frase bonita</button>
-        </div>
-        <div class="msg" id="msg"></div>
-      </article>
+    <section class="card letter">
+      <p>
+        Yexalen, contigo aprendí que el amor se nota en los detalles:
+        en una mirada, en una risa, en los momentos simples que se vuelven especiales.
+      </p>
+      <p>
+        Gracias por existir, por tu corazón tan lindo y por iluminar mis días.
+        Te amo con todo lo que soy.
+      </p>
+      <p class="firma">Con todo mi amor, tu novio 💌</p>
 
-      <aside class="panel">
-        <h2>Jardín de tulipanes</h2>
-        <div class="garden" id="garden"></div>
-      </aside>
+      <button class="btn" id="btnMsg">Mostrar mensaje sorpresa</button>
+      <div class="extra" id="extra">Presiona el botón para ver tu mensaje especial.</div>
     </section>
   </main>
 
+  <div class="modal" id="modal">
+    <img id="modalImg" alt="Foto grande">
+  </div>
+
   <script>
-    const garden = document.getElementById("garden");
     const frases = [
-      "Eres mi color favorito en cualquier día gris.",
-      "Contigo, todo se siente más bonito.",
-      "Tus ojos tienen paz de primavera.",
-      "Siempre voy a querer verte sonreír."
+      "Cada foto tuya es una razón más para sonreír.",
+      "No hay filtro que mejore lo hermosa que eres.",
+      "Eres mi lugar favorito, siempre.",
+      "Te amo más de lo que estas palabras pueden decir."
     ];
 
-    const clases = ["pink", "lila", "morado"];
-
-    function tulip(tipo){
-      const d = document.createElement("div");
-      d.className = `tulip ${tipo}`;
-      d.innerHTML = `
-        <div class="flower">
-          <span class="petal l"></span>
-          <span class="petal c"></span>
-          <span class="petal r"></span>
-        </div>
-        <div class="stem"></div>
-        <div class="leaf left"></div>
-        <div class="leaf right"></div>
-      `;
-      return d;
-    }
-
-    for(let i=0;i<12;i++){
-      const t = tulip(clases[i % clases.length]);
-      garden.appendChild(t);
-    }
-
-    document.getElementById("btnFrase").addEventListener("click", () => {
-      const i = Math.floor(Math.random()*frases.length);
-      document.getElementById("msg").textContent = frases[i];
+    document.getElementById("btnMsg").addEventListener("click", () => {
+      const i = Math.floor(Math.random() * frases.length);
+      document.getElementById("extra").textContent = frases[i];
     });
+
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modalImg");
+
+    document.querySelectorAll(".photo img").forEach(img => {
+      img.addEventListener("click", () => {
+        modalImg.src = img.src;
+        modal.classList.add("show");
+      });
+    });
+
+    modal.addEventListener("click", () => modal.classList.remove("show"));
   </script>
 </body>
 </html>
